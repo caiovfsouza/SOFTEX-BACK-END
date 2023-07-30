@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora do Caio</title>
+</head>
+<body>
+    <script>
+    let prim , seg , op , result;
+        function calculadora(prim , seg , op , result) {
+            switch (op) {
+                case ("1"):
+                    prim = Number(window.prompt(`Digite o primeiro número:`));
+                    seg = Number(window.prompt(`Digite o segundo número:`));
+                    result = prim + seg;
+                    return result;
+                    break;
+                case ("2"):
+                    prim = Number(window.prompt(`Digite o primeiro número:`));
+                    seg = Number(window.prompt(`Digite o segundo número:`));
+                    result = prim - seg;
+                    return result;
+                    break;
+                case ("3"):
+                    prim = Number(window.prompt(`Digite o primeiro número:`));
+                    seg = Number(window.prompt(`Digite o segundo número:`));
+                    result = prim * seg;
+                    return result
+                    break;
+                case ("4"):
+                    prim = Number(window.prompt(`Digite o primeiro número:`));
+                    seg = Number(window.prompt(`Digite o segundo número:`));
+                    result = prim / seg;
+                    return result
+                    break;
+                case ("0"):
+                    return (`Até logo!`)
+                default:
+                    return (`Essa opção não existe.`);
+                break;
+            }
+        }
+    while(op != "0") {
+        op = window.prompt(`CALCULADORA DO CAIO \n \n O que você deseja fazer? \n 1. Somar \n 2. Subtrair \n 3. Multiplicar \n 4. Dividir \n 0. Sair`);
+        Number(window.alert(`Resultado: \n ${calculadora(prim , seg , op , result)}`));
+    }
+    </script>
+</body>
+</html>
