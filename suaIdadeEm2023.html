@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua idade em 2023</title>
+</head>
+<body>
+    <script>
+        let nomeCompleto , anoNasci , idade;
+
+        nomeCompleto = window.prompt(`Nome completo:`);
+        anoCorreto = false;
+        while (anoCorreto == false) {
+            try {
+                anoNasci = Number(window.prompt(`Ano de nascimento`));
+                    if (anoNasci >= 2022 && anoNasci < 2023 && anoNasci !== "") {
+                        anoCorreto = true;
+                        idade = 2023 - anoNasci;
+                        window.alert(`Olá, ${nomeCompleto}. Em 2023 você completou, ou completará, ${idade} ano. PARABÉNS!`)
+                    } else if (anoNasci >= 1922 && anoNasci < 2022 && anoNasci !== "") {
+                        anoCorreto = true;
+                        idade = 2023 - anoNasci;
+                        window.alert(`Olá, ${nomeCompleto}. Em 2023 você completou, ou completará, ${idade} anos. PARABÉNS!`)
+                    } else {
+                        anoCorreto = false;
+                        throw new Error(`Ano inválido!`);
+                    }
+            } catch (error) {
+                window.alert(error);
+                window.alert(`Informe um ano entre 1922 e 2022.`);
+            }
+        }
+    </script>
+</body>
+</html>
