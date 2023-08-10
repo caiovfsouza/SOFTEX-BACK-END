@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEIÇÕES 2023</title>
+</head>
+<body>
+    <script>
+        const candidato = Object.freeze ({
+            CAIO : 889 ,
+            JEFERSON : 847 ,
+            MIGUEL : 515 ,
+            BRANCO : 0
+            }) ;
+
+        let escolha , confirma , result ;
+            
+        let votosCaio = 0 ;
+        let votosJeferson = 0 ;
+        let votosMiguel = 0 ;
+        let votosBranco = 0 ;
+        let votosNulo = 0 ;
+        let totalVotos = 0 ;
+        let maisVotado = 0 ;
+        let op = true ;
+    
+        while (op == true) {
+        try {        
+            escolha = prompt(`\nELEIÇÕES 2023 \nEscolha o seu candidato: \n \nDigite ${candidato.CAIO} => Para votar no candidato CAIO \nDigite ${candidato.JEFERSON} => Para votar no candidato JEFERSON \nDigite ${candidato.MIGUEL} => Para votar no candidato MIGUEL\nDigite ${candidato.BRANCO} => Para votar em BRANCO \n`);               
+                if (escolha == candidato.CAIO && escolha !== "") {  
+                    confirma = prompt(`Deseja confirmar o seu voto no candidato Caio? Sim | Não`) ;
+                        if (confirma == "Sim" || confirma == "sim" || confirma == "SIM") {
+                            votosCaio ++ ;
+                            op = false ;
+                        } else {
+                            op = true ;
+                        } 
+                } else if (escolha == candidato.JEFERSON && escolha !== "") {
+                    confirma = prompt(`Deseja confirmar o seu voto no candidato Jeferson? Sim | Não`) ;
+                        if (confirma == "Sim" || confirma == "sim" || confirma == "SIM") {
+                            votosJeferson ++ ;
+                            op = false ;
+                        } else {
+                            op = true ;
+                        }
+                } else if (escolha == candidato.MIGUEL && escolha !== "") {
+                    confirma = prompt(`Deseja confirmar o seu voto no candidato Miguel? Sim | Não`) ;
+                        if (confirma == "Sim" || confirma == "sim" || confirma == "SIM") {
+                            votosMiguel ++ ;
+                            op = false ;
+                        } else {
+                            op = true ;
+                        }
+                } else if (escolha == candidato.BRANCO && escolha !== "") {
+                    confirma = prompt(`Deseja realmente votar em branco? Sim | Não`) ;
+                        if (confirma == "Sim" || confirma == "sim" || confirma == "SIM") {
+                            votosBranco ++ ;
+                            op = false ;
+                        } else {
+                            op = true ;
+                        }
+                } else if (escolha == "" || escolha > 0) {
+                    confirma = prompt(`Deseja realmente anular o seu voto? Sim | Não`) ;
+                        if (confirma == "Sim" || confirma == "sim" || confirma == "SIM") {
+                            votosNulo ++ ;
+                            op = false ;
+                        } else {
+                            op = true ;
+                        }
+                } else {
+                    throw new Error("Opção inválida!");
+                    op = true ;
+                }
+        } catch (error) {    
+            alert(error);
+        }
+        result = prompt(`Deseja fechar a urna e imprimir o resultado? Sim | Não`)
+            if (result == "Sim" || result == "sim" || result == "SIM") {
+                totalVotos = votosCaio + votosJeferson + votosMiguel + votosBranco + votosNulo ;
+                if (votosCaio > votosJeferson && votosCaio > votosMiguel) {
+                    alert(`\nELEIÇÕES 2023 \nResultado final: \n \nQuantidade de votos do candidato Caio: ${votosCaio} \nQuantidade de votos do candidato Jeferson: ${votosJeferson} \nQuantidade de votos do candidato Miguel: ${votosMiguel} \nQuantidade de votos em branco: ${votosBranco} \nQuantidade de votos nulos: ${votosNulo} \n \nTotal de votos: ${totalVotos} \n \nQuem venceu a eleição foi o candidato Caio, com ${votosCaio} votos. \n`);
+                } else if (votosJeferson > votosCaio && votosJeferson > votosMiguel) {
+                    alert(`\nELEIÇÕES 2023 \nResultado final: \n \nQuantidade de votos do candidato Caio: ${votosCaio} \nQuantidade de votos do candidato Jeferson: ${votosJeferson} \nQuantidade de votos do candidato Miguel: ${votosMiguel} \nQuantidade de votos em branco: ${votosBranco} \nQuantidade de votos nulos: ${votosNulo} \n \nTotal de votos: ${totalVotos} \n \nQuem venceu a eleição foi o candidato Jeferson, com ${votosJeferson} votos. \n`);
+                } else if (votosMiguel > votosCaio && votosMiguel > votosJeferson) {
+                    alert(`\nELEIÇÕES 2023 \nResultado final: \n \nQuantidade de votos do candidato Caio: ${votosCaio} \nQuantidade de votos do candidato Jeferson: ${votosJeferson} \nQuantidade de votos do candidato Miguel: ${votosMiguel} \nQuantidade de votos em branco: ${votosBranco} \nQuantidade de votos nulos: ${votosNulo} \n \nTotal de votos: ${totalVotos} \n \nQuem venceu a eleição foi o candidato Miguel, com ${votosMiguel} votos. \n`);
+                } else {
+                    alert(`\nELEIÇÕES 2023 \nResultado final: \n \nQuantidade de votos do candidato Caio: ${votosCaio} \nQuantidade de votos do candidato Jeferson: ${votosJeferson} \nQuantidade de votos do candidato Miguel: ${votosMiguel} \nQuantidade de votos em branco: ${votosBranco} \nQuantidade de votos nulos: ${votosNulo} \n \nTotal de votos: ${totalVotos} \n \nNão houve vencedor, pois nenhum candidato recebeu voto. \n`);    
+                }
+                op = false ;
+            } else {
+                op = true ;
+            }
+    }
+    </script>
+</body>
+</html>
